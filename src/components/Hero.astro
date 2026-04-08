@@ -1,17 +1,16 @@
 ---
 ---
 <section class="hero">
-  <nav class="nav">
+  <nav class="nav" data-aos="fade-down">
     <div class="nav-logo">
-      <div class="logo-text">
-        <span class="logo-family">Family</span>
-        <span class="logo-dental">Dental</span>
-      </div>
+      <a href="/" class="logo-link">
+        <img src="/images/logo.jpg" alt="Family Dental Logo" class="logo-img" />
+      </a>
     </div>
 
     <div class="nav-links">
       <a href="#servicios">Servicios</a>
-      <a href="#galeria">Conocenos</a>
+      <a href="#galeria">Conócenos</a>
       <a href="#nosotros">Nosotros</a>
     </div>
 
@@ -22,9 +21,11 @@
   </nav>
 
   <div class="hero-inner">
-    <div class="hero-text">
+    <div class="hero-text" data-aos="fade-right" data-aos-delay="600">
       <div class="hero-badge">✅ Primera consulta GRATIS</div>
-      <h1>Tu sonrisa<br/>en las mejores<br/><em>manos</em></h1>
+      
+      <h1>Tu sonrisa<br/>en las mejores<br/><em id="palabra-cambiante" class="palabra-animada">manos</em></h1>
+      
       <p class="hero-sub">Dr. Víctor Encalada y su equipo cuidan la salud bucal de toda tu familia — niños, jóvenes y adultos — en un ambiente cálido y moderno.</p>
 
       <div class="hero-btns">
@@ -41,41 +42,66 @@
       </div>
     </div>
 
-    <div class="hero-visual">
+    <div class="hero-visual" data-aos="zoom-in" data-aos-delay="700">
       <div class="img-placeholder hero-img">
         <img src="/images/img2.jpg" alt="Familia feliz" style="width:100%; height:100%; object-fit:cover;" />
       </div>
-      <div class="badge-float badge-1">
+      <div class="badge-float badge-1 levitar-1">
         <strong>+1000</strong><span>pacientes<br/>atendidos</span>
       </div>
-      <div class="badge-float badge-2">
+      <div class="badge-float badge-2 levitar-2">
         <span class="badge-icon">🦷</span><span>Consulta<br/><strong>gratis</strong></span>
       </div>
     </div>
   </div>
 </section>
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const palabras = ["manos", "expertos", "tecnología", "familias"];
+    let index = 0;
+    const elemento = document.getElementById('palabra-cambiante');
+    
+    if (elemento) {
+      setInterval(() => {
+        elemento.style.opacity = 0;
+        elemento.style.transform = "translateY(10px)";
+        
+        setTimeout(() => {
+          index = (index + 1) % palabras.length;
+          elemento.innerText = palabras[index];
+          elemento.style.opacity = 1;
+          elemento.style.transform = "translateY(0)";
+        }, 400); 
+      }, 3000); 
+    }
+  });
+</script>
+
 <style>
-.hero { min-height: 100vh; background: linear-gradient(135deg, var(--azul-dark) 0%, var(--azul) 60%, #2589D4 100%); color: white; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+/* FONDO MÁGICO ANIMADO */
+.hero { min-height: 100vh; background: linear-gradient(-45deg, var(--azul-dark), var(--azul), #2589D4, var(--magenta)); background-size: 400% 400%; animation: moverFondo 12s ease infinite; color: white; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+@keyframes moverFondo { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .hero::before { content: ''; position: absolute; top: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%); pointer-events: none; }
 .hero::after { content: ''; position: absolute; bottom: -20%; left: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(224,40,122,0.12) 0%, transparent 70%); pointer-events: none; }
-.nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 4rem; position: relative; z-index: 2; }
-.logo-text { display: flex; flex-direction: column; line-height: 1; }
-.logo-family { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: white; letter-spacing: -0.01em; }
-.logo-dental { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--magenta); letter-spacing: 0.15em; text-transform: uppercase; }
 
-/* ESTILOS DEL NUEVO MENÚ */
+/* NAV Y LOGO NUEVO */
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 4rem; position: relative; z-index: 2; background: rgba(15, 74, 128, 0.1); backdrop-filter: blur(5px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+.logo-link { display: block; transition: transform 0.3s ease; }
+.logo-link:hover { transform: scale(1.05); }
+.logo-img { height: 50px; /* Ajusta la altura de tu logo aquí */ width: auto; display: block; }
+
 .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-.nav-links a { font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.8); transition: color 0.3s; }
-.nav-links a:hover { color: #7DD3FC; }
-
+.nav-links a { font-size: 0.95rem; font-weight: 700; color: white; transition: color 0.3s; }
+.nav-links a:hover { color: var(--magenta); }
 .nav-info { display: flex; align-items: center; gap: 1.5rem; font-size: 0.88rem; color: rgba(255,255,255,0.75); }
 .nav-cta { background: var(--magenta); color: white; padding: 0.5rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; }
 .nav-cta:hover { background: #c01f68; transform: translateY(-1px); }
 .hero-inner { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; padding: 2rem 4rem 5rem; position: relative; z-index: 2; }
 .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(10px); color: white; font-size: 0.82rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.4rem; }
 h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; color: white; margin-bottom: 1.4rem; }
-h1 em { color: #7DD3FC; font-style: normal; }
+h1 em { color: #7DD3FC; font-style: normal; display: inline-block; transition: opacity 0.4s ease, transform 0.4s ease; }
 .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.72); max-width: 440px; line-height: 1.7; margin-bottom: 2.2rem; }
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--magenta); color: white; padding: 0.85rem 1.8rem; border-radius: 999px; font-weight: 600; font-size: 0.92rem; transition: all 0.3s; box-shadow: 0 4px 20px rgba(224,40,122,0.4); }
@@ -95,22 +121,24 @@ h1 em { color: #7DD3FC; font-style: normal; }
 .badge-icon { font-size: 1.4rem; }
 .badge-2 span { font-size: 0.75rem; color: var(--gris); line-height: 1.4; }
 .badge-2 strong { color: var(--magenta); }
+.levitar-1 { animation: levitacion 4s ease-in-out infinite; }
+.levitar-2 { animation: levitacion 5s ease-in-out infinite alternate-reverse; }
+@keyframes levitacion { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
-  .nav { padding: 1.2rem 1.5rem; }
+  .nav { padding: 1rem 1.5rem; }
+  .logo-img { height: 40px; } /* Logo ligeramente más pequeño en móvil */
   .nav-info span { display: none; }
-  
-  /* En celular ocultamos los links porque no caben, dejamos solo el logo y el botón */
   .nav-links { display: none; } 
-
   .hero-inner { grid-template-columns: 1fr; padding: 1.5rem 1.5rem 3rem; gap: 3rem; text-align: center; }
   .hero-sub { margin: 0 auto 2.2rem; }
   .hero-btns { justify-content: center; }
   .hero-datos { align-items: center; }
   .hero-visual { order: -1; margin-top: 1rem; width: 100%; }
   .hero-img, .img-placeholder { aspect-ratio: 1/1; max-width: 100%; }
-  .badge-1 { left: 50%; transform: translateX(-50%); bottom: -2rem; width: max-content; flex-direction: row; text-align: left;}
-  .badge-2 { right: 50%; transform: translateX(50%); top: -1.5rem; width: max-content; flex-direction: row; text-align: left; }
+  .levitar-1 { animation: levitacionMobile 4s ease-in-out infinite; left: 50%; bottom: -2rem; width: max-content; flex-direction: row; text-align: left; transform: translateX(-50%); }
+  .levitar-2 { animation: levitacionMobile2 5s ease-in-out infinite reverse; right: 50%; top: -1.5rem; width: max-content; flex-direction: row; text-align: left; transform: translateX(50%); }
 }
+@keyframes levitacionMobile { 0% { transform: translate(-50%, 0px); } 50% { transform: translate(-50%, -10px); } 100% { transform: translate(-50%, 0px); } }
+@keyframes levitacionMobile2 { 0% { transform: translate(50%, 0px); } 50% { transform: translate(50%, -10px); } 100% { transform: translate(50%, 0px); } }
 </style>

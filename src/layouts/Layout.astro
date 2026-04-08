@@ -25,11 +25,13 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet" />
     
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       :root {
-        /* PALETA CLÍNICA Y AMIGABLE */
         --azul-dark:     #0F4A80;
         --azul:          #1A6FB5;
         --azul-light:    #E8F4FC;
@@ -44,7 +46,7 @@ const {
         --font-body:    'DM Sans', sans-serif;
       }
 
-      html { scroll-behavior: smooth; }
+      html { scroll-behavior: smooth; overflow-x: hidden; }
 
       body {
         background: var(--gris-claro);
@@ -57,9 +59,101 @@ const {
 
       img { max-width: 100%; display: block; }
       a   { color: inherit; text-decoration: none; }
+      
+      /* ESTILOS DEL PRELOADER (PANTALLA DE CARGA) */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 999999;
+        background: var(--azul-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+      #preloader.oculto {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .preloader-logo {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        font-weight: 800;
+        color: white;
+        animation: latido 1.5s infinite ease-in-out;
+      }
+      .preloader-logo span { color: var(--magenta); }
+
+      @keyframes latido {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+
+      /* LA MUELITA FLOTANTE */
+      .muelita-tracker {
+        position: fixed;
+        right: 20px;
+        top: 15%;
+        font-size: 2.8rem;
+        z-index: 9999;
+        pointer-events: none;
+        filter: drop-shadow(0 6px 12px rgba(224,40,122,0.4));
+        transition: transform 0.1s ease-out;
+      }
+
+      @media (max-width: 768px) {
+        .muelita-tracker { right: 10px; font-size: 2.2rem; }
+      }
     </style>
   </head>
   <body>
+    <div id="preloader">
+      <div class="preloader-logo">Family<span>Dental</span></div>
+    </div>
+
     <slot />
+
+    <div class="muelita-tracker" id="muelita">🦷</div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js" is:inline></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" is:inline></script>
+    
+    <script is:inline>
+      // 0. Quitar la pantalla de carga cuando la página esté lista
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.getElementById('preloader').classList.add('oculto');
+        }, 500); // Le damos medio segundo para que se vea el efecto
+      });
+
+      // 1. Activar animaciones de aparecer
+      AOS.init({ duration: 800, once: true, offset: 100 });
+
+      // 2. Activar el carrusel de la galería
+      new Swiper(".swiper-galeria", {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        grabCursor: true,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        breakpoints: {
+          640: { slidesPerView: 2.2, spaceBetween: 20 },
+          1024: { slidesPerView: 3, spaceBetween: 30 },
+        }
+      });
+
+      // 3. Hacer que la muelita baje y gire
+      window.addEventListener('scroll', () => {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight > 0) {
+          const scrollPercentage = window.scrollY / docHeight;
+          const yPos = scrollPercentage * 80; 
+          const muelita = document.getElementById('muelita');
+          if (muelita) {
+            muelita.style.transform = `translateY(${yPos}vh) rotate(${scrollPercentage * 360}deg)`;
+          }
+        }
+      });
+    </script>
   </body>
 </html>
