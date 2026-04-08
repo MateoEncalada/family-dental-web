@@ -1,0 +1,116 @@
+---
+---
+<section class="hero">
+  <nav class="nav">
+    <div class="nav-logo">
+      <div class="logo-text">
+        <span class="logo-family">Family</span>
+        <span class="logo-dental">Dental</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Conocenos</a>
+      <a href="#nosotros">Nosotros</a>
+    </div>
+
+    <div class="nav-info">
+      <span>📞 099 713 7230</span>
+      <a href="https://wa.me/593997137230?text=Hola! Quiero agendar una consulta" target="_blank" class="nav-cta">Consulta gratis</a>
+    </div>
+  </nav>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">✅ Primera consulta GRATIS</div>
+      <h1>Tu sonrisa<br/>en las mejores<br/><em>manos</em></h1>
+      <p class="hero-sub">Dr. Víctor Encalada y su equipo cuidan la salud bucal de toda tu familia — niños, jóvenes y adultos — en un ambiente cálido y moderno.</p>
+
+      <div class="hero-btns">
+        <a href="https://wa.me/593997137230?text=Hola! Quiero agendar una consulta gratuita" target="_blank" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.14 1.535 5.878L.057 23.269a.75.75 0 0 0 .916.916l5.36-1.476A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.722 9.722 0 0 1-4.964-1.357l-.354-.211-3.681 1.013 1.017-3.718-.229-.371A9.722 9.722 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Agendar por WhatsApp
+        </a>
+        <a href="#servicios" class="btn-outline">Ver servicios</a>
+      </div>
+
+      <div class="hero-datos">
+        <div class="dato"><span class="dato-icon">📍</span><span>Av. Montalvo 02-27 y Cuenca, Ambato</span></div>
+        <div class="dato"><span class="dato-icon">📞</span><span>099 713 7230 · 032-827374</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="img-placeholder hero-img">
+        <img src="/images/img2.jpg" alt="Familia feliz" style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+      <div class="badge-float badge-1">
+        <strong>+1000</strong><span>pacientes<br/>atendidos</span>
+      </div>
+      <div class="badge-float badge-2">
+        <span class="badge-icon">🦷</span><span>Consulta<br/><strong>gratis</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero { min-height: 100vh; background: linear-gradient(135deg, var(--azul-dark) 0%, var(--azul) 60%, #2589D4 100%); color: white; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%); pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: -20%; left: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(224,40,122,0.12) 0%, transparent 70%); pointer-events: none; }
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 4rem; position: relative; z-index: 2; }
+.logo-text { display: flex; flex-direction: column; line-height: 1; }
+.logo-family { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: white; letter-spacing: -0.01em; }
+.logo-dental { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--magenta); letter-spacing: 0.15em; text-transform: uppercase; }
+
+/* ESTILOS DEL NUEVO MENÚ */
+.nav-links { display: flex; gap: 2.5rem; align-items: center; }
+.nav-links a { font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.8); transition: color 0.3s; }
+.nav-links a:hover { color: #7DD3FC; }
+
+.nav-info { display: flex; align-items: center; gap: 1.5rem; font-size: 0.88rem; color: rgba(255,255,255,0.75); }
+.nav-cta { background: var(--magenta); color: white; padding: 0.5rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; }
+.nav-cta:hover { background: #c01f68; transform: translateY(-1px); }
+.hero-inner { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; padding: 2rem 4rem 5rem; position: relative; z-index: 2; }
+.hero-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(10px); color: white; font-size: 0.82rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.4rem; }
+h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; color: white; margin-bottom: 1.4rem; }
+h1 em { color: #7DD3FC; font-style: normal; }
+.hero-sub { font-size: 1rem; color: rgba(255,255,255,0.72); max-width: 440px; line-height: 1.7; margin-bottom: 2.2rem; }
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--magenta); color: white; padding: 0.85rem 1.8rem; border-radius: 999px; font-weight: 600; font-size: 0.92rem; transition: all 0.3s; box-shadow: 0 4px 20px rgba(224,40,122,0.4); }
+.btn-primary:hover { background: #c01f68; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(224,40,122,0.5); }
+.btn-outline { display: inline-flex; align-items: center; border: 2px solid rgba(255,255,255,0.3); color: white; padding: 0.83rem 1.6rem; border-radius: 999px; font-weight: 500; font-size: 0.92rem; transition: all 0.3s; }
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+.hero-datos { display: flex; flex-direction: column; gap: 0.6rem; }
+.dato { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+.dato-icon { font-size: 1rem; }
+.hero-visual { position: relative; display: flex; justify-content: center; }
+.hero-img, .img-placeholder { width: 100%; max-width: 480px; aspect-ratio: 4/5; border-radius: 2rem; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.badge-float { position: absolute; background: white; border-radius: 1rem; padding: 0.9rem 1.2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 0.6rem; color: var(--texto); }
+.badge-1 { bottom: 2.5rem; left: -1rem; flex-direction: column; text-align: center; gap: 0.1rem; }
+.badge-1 strong { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--azul); display: block; }
+.badge-1 span { font-size: 0.72rem; color: var(--gris); line-height: 1.4; }
+.badge-2 { top: 2rem; right: -1rem; flex-direction: column; text-align: center; gap: 0.1rem; }
+.badge-icon { font-size: 1.4rem; }
+.badge-2 span { font-size: 0.75rem; color: var(--gris); line-height: 1.4; }
+.badge-2 strong { color: var(--magenta); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav { padding: 1.2rem 1.5rem; }
+  .nav-info span { display: none; }
+  
+  /* En celular ocultamos los links porque no caben, dejamos solo el logo y el botón */
+  .nav-links { display: none; } 
+
+  .hero-inner { grid-template-columns: 1fr; padding: 1.5rem 1.5rem 3rem; gap: 3rem; text-align: center; }
+  .hero-sub { margin: 0 auto 2.2rem; }
+  .hero-btns { justify-content: center; }
+  .hero-datos { align-items: center; }
+  .hero-visual { order: -1; margin-top: 1rem; width: 100%; }
+  .hero-img, .img-placeholder { aspect-ratio: 1/1; max-width: 100%; }
+  .badge-1 { left: 50%; transform: translateX(-50%); bottom: -2rem; width: max-content; flex-direction: row; text-align: left;}
+  .badge-2 { right: 50%; transform: translateX(50%); top: -1.5rem; width: max-content; flex-direction: row; text-align: left; }
+}
+</style>

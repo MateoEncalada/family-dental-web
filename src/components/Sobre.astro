@@ -1,0 +1,76 @@
+---
+---
+<section class="sobre" id="nosotros">
+  <div class="container">
+    <div class="sobre-visual">
+      <div class="img-placeholder doctor-img">
+        <img src="/images/img3.jpg" alt="Dr. Víctor Encalada" style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+      <div class="doctor-card">
+        <strong>Dr. Víctor Encalada</strong>
+        <span>Odontólogo General</span>
+      </div>
+    </div>
+
+    <div class="sobre-texto">
+      <p class="section-tag">Sobre nosotros</p>
+      <h2>Cuidamos tu sonrisa<br/>con <em>experiencia</em> y<br/>dedicación</h2>
+
+      <p>En Family Dental sabemos que ir al dentista puede generar nervios, especialmente en los niños. Por eso el Dr. Víctor Encalada y su equipo trabajan en un ambiente cálido, moderno y amigable para toda la familia.</p>
+      <p>Ubicados en el corazón de Ambato, ofrecemos atención completa desde limpiezas preventivas hasta tratamientos avanzados como implantes y ortodoncia — todo en un solo lugar.</p>
+
+      <div class="valores">
+        <div class="valor">
+          <span class="valor-icon">💙</span>
+          <div><strong>Atención familiar</strong><p>Tratamos a niños, jóvenes y adultos con el mismo cuidado y calidez.</p></div>
+        </div>
+        <div class="valor">
+          <span class="valor-icon">🏥</span>
+          <div><strong>Equipos modernos</strong><p>Tecnología actualizada para diagnósticos precisos y tratamientos seguros.</p></div>
+        </div>
+        <div class="valor">
+          <span class="valor-icon">✅</span>
+          <div><strong>Primera consulta gratis</strong><p>Ven a conocernos sin costo. Te evaluamos y te orientamos sin compromiso.</p></div>
+        </div>
+      </div>
+
+      <div class="ubicacion">
+        <span>📍</span>
+        <div>
+          <strong>Av. Montalvo 02-27 y Cuenca · Ambato</strong>
+          <span>Lunes a Sábado · Llama al 099 713 7230</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.sobre { background: var(--blanco); padding: 6rem 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 4rem; display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+.sobre-visual { position: relative; }
+.doctor-img, .img-placeholder { width: 100%; aspect-ratio: 3/4; border-radius: 1.5rem; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.doctor-card { position: absolute; bottom: -1rem; right: -1rem; background: var(--azul-dark); color: white; padding: 1.2rem 1.6rem; border-radius: 1rem; box-shadow: 0 8px 28px rgba(15,74,128,0.25); text-align: center; }
+.doctor-card strong { display: block; font-family: var(--font-display); font-size: 1rem; font-weight: 800; margin-bottom: 0.2rem; }
+.doctor-card span { font-size: 0.78rem; opacity: 0.75; }
+.section-tag { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--magenta); margin-bottom: 0.6rem; font-weight: 700; }
+h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; color: var(--texto); line-height: 1.15; margin-bottom: 1.5rem; }
+h2 em { color: var(--azul); font-style: normal; }
+.sobre-texto > p { color: var(--gris); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.8rem; }
+.valores { display: flex; flex-direction: column; gap: 1.2rem; margin: 2rem 0; }
+.valor { display: flex; gap: 1rem; align-items: flex-start; }
+.valor-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+.valor div strong { display: block; font-size: 0.95rem; font-weight: 700; color: var(--texto); margin-bottom: 0.2rem; }
+.valor div p { font-size: 0.88rem; color: var(--gris); line-height: 1.5; }
+.ubicacion { display: flex; gap: 0.8rem; align-items: flex-start; background: var(--gris-claro); border-radius: 0.8rem; padding: 1.2rem; border-left: 4px solid var(--azul); font-size: 0.85rem; }
+.ubicacion span:first-child { font-size: 1.2rem; }
+.ubicacion div strong { display: block; color: var(--texto); font-weight: 700; margin-bottom: 0.2rem; }
+.ubicacion div span { color: var(--gris); }
+
+@media (max-width: 768px) {
+  .container { grid-template-columns: 1fr; gap: 3rem; padding: 0 1.5rem; }
+  .sobre { padding: 4rem 0; }
+  /* Centramos la tarjetita en celular */
+  .doctor-card { right: 50%; transform: translateX(50%); bottom: -1.5rem; width: max-content; }
+}
+</style>

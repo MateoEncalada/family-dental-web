@@ -1,0 +1,44 @@
+---
+---
+<section class="galeria" id="galeria">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Nuestras instalaciones</p>
+      <h2>Las mejores instalaciones<br/><em>para tus hijos</em></h2>
+    </div>
+
+    <div class="masonry">
+      <div class="item-galeria tall"><img src="/images/g3.jpg" alt="Niño en consultorio" /></div>
+      <div class="item-galeria"><img src="/images/img2.jpg" alt="Instalaciones" /></div>
+      <div class="item-galeria"><img src="/images/img1.jpg" alt="Equipo médico" /></div>
+      <div class="item-galeria"><img src="/images/g2.jpg" alt="Tratamiento" /></div>
+      <div class="item-galeria"><img src="/images/g1.jpg" alt="Sonrisa resultado" /></div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.galeria { background: white; padding: 6rem 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-tag { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--magenta); margin-bottom: 0.6rem; font-weight: 700; }
+h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--texto); line-height: 1.2; }
+h2 em { color: var(--azul); font-style: normal; }
+
+.masonry { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 1rem; }
+.item-galeria { border-radius: 0.8rem; overflow: hidden; background: var(--azul-light); }
+.item-galeria img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.item-galeria:hover img { transform: scale(1.05); }
+.tall  { grid-row: span 2; }
+.wide  { grid-column: span 2; }
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.5rem; }
+  .galeria { padding: 4rem 0; }
+  /* En celular, 1 sola columna para que las fotos se luzcan y no se aplasten */
+  .masonry { grid-template-columns: 1fr; grid-auto-rows: 250px; gap: 1.5rem; }
+  .tall { grid-row: span 1; }
+  .wide { grid-column: span 1; }
+}
+</style>
